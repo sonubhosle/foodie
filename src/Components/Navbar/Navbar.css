@@ -1,0 +1,139 @@
+.navbar {
+  width: 100%;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #fff;
+  padding: 0px 3%;
+  box-shadow: rgba(0, 0, 0, 0.041) 0px 0px 15px 0px;
+}
+
+.navbar .logo {
+  position: relative;
+  font-size: 23px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #F5004F;
+}
+
+.navbar .logo span {
+  font-size: 14px;
+  text-transform: lowercase;
+  color: #387F39;
+}
+
+.navbar .right {
+  display: flex;
+  align-items: center;
+  gap: 50px;
+
+}
+
+.navbar .right .line {
+  height: 40px;
+  width: 1px;
+  background-color: #e6e6e6;
+}
+
+.navbar .profile .auth-btn {
+  color: #0C1844;
+  font-size: 14px;
+  cursor: pointer;
+  text-transform: uppercase;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.navbar .profile .dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.profile .dropdown .menu {
+  position: absolute;
+  top: 65px;
+  right: 0;
+  border-radius: 4px;
+  width: 200px;
+  padding: 10px;
+  background-color: #fff;
+  box-shadow:rgba(0, 0, 0, 0.051) 0px 5px 15px 0px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: all 0.3s ease;
+  list-style: none;
+}
+
+.profile .dropdown .menu a{
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 16px;
+  color: #444;
+  padding: 6px 0px;
+  transition:  0.5s linear;
+}
+
+.profile .dropdown .menu a:hover{
+  color: #F5004F;
+}
+
+.profile .dropdown .menu a p{
+  display: flex;
+  align-items: center;
+   font-size: 18px;
+}
+
+.profile .dropdown .menu .hr-line{
+     width: 100%;
+     height: 1px;
+     background-color: #e6e6e6;
+     margin: 10px 0px;
+}
+
+.dropdown .menu.open {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.dropdown .open-btn {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  outline: none;
+  border: none;
+  font-size: 25px;
+  cursor: pointer;
+  color: #fff;
+  background-color: blueviolet;
+}
+
+.right .cart-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  justify-content: right;
+  color: #0C1844;
+  cursor: pointer;
+}
+
+.right .cart-btn .item {
+  background-color: #F5004F;
+  position: absolute;
+  top: -4px;
+  right: -18px;
+  color: #fff;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+}

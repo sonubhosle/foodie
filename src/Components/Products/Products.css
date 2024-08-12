@@ -1,0 +1,151 @@
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(248px, 1fr));
+    gap: 15px;
+    position: relative;
+    margin: 20px 0px;
+    padding: 0px 20px;
+
+}
+
+.product-grid .product-card {
+    width: 248px;
+    height: auto;
+    position: relative;
+    background-color: #fff;
+    padding: 3px;
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.090) 0px 0px 5px 0px;
+    transition: 0.5s ease;
+    cursor: pointer;
+}
+
+.product-grid .product-card:hover {
+    transform: translateY(-10px);
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+.product-grid .product-card .poster {
+    width: 100%;
+    height: 150px;
+    position: relative;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.product-grid .product-card .poster .pluse {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+.product-card .poster img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: 0.5s ease;
+}
+
+.product-grid .product-card:hover img {
+    filter: grayscale(0.5);
+}
+
+
+.product-card .product-info {
+    width: 100%;
+    padding: 8px 5px;
+    background-color: #fff;
+    transition: 0.5s ease;
+    position: relative;
+}
+
+.product-card:hover .product-info {
+    transform: translateY(-15px);
+}
+
+
+.product-card .product-info .brand {
+    text-transform: uppercase;
+    font-size: 14px;
+    color: #3f3f3f;
+    font-weight: 500;
+}
+
+.product-card .product-info .title {
+    font-size: 16px;
+    color: #050505;
+    margin: 5px 0px 10px 0px;
+    transition: 0.5s ease;
+}
+
+.product-card:hover .title {
+    color: #F5004F;
+}
+
+
+.product-card .product-info .price-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.product-info .price-info .discountPrice {
+    font-size: 20px;
+    font-weight: 600;
+    color: #3f3f3f;
+}
+
+.product-info .price-info .price {
+    font-size: 15px;
+    font-weight: 500;
+    color: #646464;
+    text-decoration: line-through;
+}
+
+.product-info .price-info .discountPersent {
+    font-weight: 500;
+    color: #468585;
+    font-size: 14px;
+}
+
+.product-info .quantity {
+    margin-top: 15px;
+    float: right;
+    padding: 5px;
+}
+
+.product-info .quantity .in-stock {
+    color: #50B498;
+    font-size: 14px;
+
+
+}
+
+.product-info .quantity .out-of-stock {
+    color: #F5004F;
+    font-size: 14px;
+
+}
+
+
+.product-grid .no-products {
+    width: 100%;
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.product-grid .no-products p {
+    width: 200px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    color: #F5004F;
+    font-weight: 500;
+    text-transform: uppercase;
+    border-radius: 5px;
+}

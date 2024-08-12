@@ -1,0 +1,132 @@
+footer {
+    width: 100%;
+    height: auto;
+    position: relative;
+    background-color: #0C0C0C;
+    border-top: 1px solid #dcdcdc;
+    padding: 20px 4%;
+}
+
+footer .footer_container {
+    display: flex;
+    width: 100%;
+    height: auto;
+    position: relative;
+    gap: 60px;
+}
+
+.footer_container .left_sect {
+    width: 300px;
+    height: auto;
+}
+
+.footer_container .left_sect  .logo-2 {
+    position: relative;
+    font-size: 23px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #fff;
+  }
+  
+  .footer_container .left_sect  .logo-2 span {
+    font-size: 14px;
+    text-transform: lowercase;
+    color: #387F39;
+  }
+  
+
+
+.footer_container .left_sect p {
+    color: #acacac;
+    font-size: 16px;
+    margin: 20px 0px;
+}
+
+.footer_container .left_sect .footer_icons {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.footer_container .left_sect .footer_icons a {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    background-color: rgba(255, 255, 255, 0.041);
+    font-size: 20px;
+    transition: 0.5s ease-in;
+}
+
+
+.footer_container .left_sect .footer_icons a:hover {
+    color: #F5004F;
+}
+
+
+.footer_container .grid_section {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    flex-grow: 1;
+    position: relative;
+}
+
+.footer_container .grid_section .grid_box {
+    width: 100%;
+    height: auto;
+    position: relative;
+}
+
+.footer_container .grid_section .grid_box a {
+    display: flex;
+    align-items: center;
+    color: #acacac;
+    text-decoration: none;
+    padding: 6px 0px 0px 20px;
+    transition: 0.5s ease;
+    font-weight: 500;
+    font-size: 15px;
+}
+
+.footer_container .grid_section .grid_box a:hover {
+    padding-left: 10px;
+    color: #F5004F;
+}
+
+.footer_container .grid_section .grid_box .heading {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 10px;
+}
+
+.footer_container .grid_section .grid_box .line {
+    height: 30px;
+    width: 3px;
+    background-color: #F5004F;
+    border-radius: 5px;
+}
+
+.footer_container .grid_section .grid_box .heading h2 {
+    color: #fff;
+    font-weight: 500;
+    font-size: 18px;
+}
+
+
+
+@media(max-width:991px) {
+
+    footer .footer_container {
+        display: flex;
+        width: 100%;
+        height: auto;
+        position: relative;
+        gap: 60px;
+        flex-direction: column;
+    }
+
+}
