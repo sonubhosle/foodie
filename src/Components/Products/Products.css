@@ -149,3 +149,115 @@
     text-transform: uppercase;
     border-radius: 5px;
 }
+
+
+
+/* Filtering  */
+
+.filtering {
+    width: 97%;
+    margin: 30px auto 0px auto;
+    height: 80px;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 3px;
+    padding: 0px 2%;
+}
+
+.filtering h2 {
+    text-transform: uppercase;
+    font-size: 17px;
+}
+
+.filtering .filter-options {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    width: 70%;
+    justify-content: right;
+}
+
+.filtering .filter-options .search {
+    position: relative;
+    width: 30%;
+}
+
+.filtering .filter-options .search .search-bar {
+    width: 100%;
+    height: 40px;
+    padding-left: 15px;
+    border-radius: 3px;
+    border: 1px solid #f7f7f7;
+    outline: none;
+    background-color: #f7f7f7;
+
+}
+
+.filtering .filter-options .search .search-icon {
+    position: absolute;
+    right: 15px;
+    top: 12px;
+}
+
+
+/* Custome Dropdown  */
+
+.custom-dropdown {
+    position: relative;
+    display: inline-block;
+    font-family: Arial, sans-serif;
+}
+
+.dropdown-header {
+    background-color: #f7f7f7;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    width: 150px;
+    height: 40px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    padding: 0px 8px;
+    align-items: center;
+}
+
+.arrow {
+    font-size: 14px;
+    transition: transform 0.3s ease;
+}
+
+.dropdown-options {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #fff;
+    border-radius: 4px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    max-height: 0;
+    overflow-y: auto;
+    opacity: 0;
+    transition: max-height 0.3s ease, opacity 0.3s ease;
+    z-index: 1000;
+    width: 100%;
+    box-shadow: rgba(0, 0, 0, 0.051) 0px 5px 15px 0px;
+
+
+}
+
+.dropdown-options.open {
+    max-height: 200px;
+    /* Adjust based on the number of options */
+    opacity: 1;
+}
+
+.dropdown-option {
+    padding: 10px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.dropdown-option:hover {
+    background-color: #f1f1f1;
+}
