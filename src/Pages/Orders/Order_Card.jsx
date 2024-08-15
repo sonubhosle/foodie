@@ -9,7 +9,6 @@ const Order_Card = ({ item }) => {
     navigate('/product/review/rating');
   };
 
-  // Function to determine dot color based on order status
   const getStatusColor = (status) => {
     switch (status) {
       case 'Delivered':
