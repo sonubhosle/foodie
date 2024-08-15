@@ -28,7 +28,7 @@ const Navbar = () => {
             <div className="right">
                 <div className="profile">
                     {
-                        true ? (
+                        false ? (
                             <div className="auth-btn"><FaUser size={20} /> Login / Signup </div>
                         ) : (
                             <div className="dropdown">

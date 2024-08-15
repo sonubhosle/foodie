@@ -5,7 +5,7 @@ import { Route, Routes } from 'react-router-dom'
 import Loader from './Components/Loader/Loader';
 import Footer from './Components/Footer/Footer';
 import Rating_Reviews from './Components/Rating_Reviews/Rating_Reviews';
-const Product_Details  =  lazy(() => import('./Pages/Product_Details/Product_Details')) ;
+const Product_Details = lazy(() => import('./Pages/Product_Details/Product_Details'));
 const Filtered_Products = lazy(() => import('./Components/Products/Filtered_Products'));
 const Home = lazy(() => import('./Pages/Home/Home'));
 const Cart = lazy(() => import('./Pages/Cart/Cart'));
