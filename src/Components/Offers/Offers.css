@@ -6,6 +6,11 @@
     padding: 30px 20px;
 }
 
+.min-width{
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    padding: 0;
+}
+
 .offer-grid .offer-card {
     width: 100%;
     height: 250px;
@@ -43,7 +48,7 @@
 
 }
 
-.offer-card .overlay .offer{
+.offer-card .overlay .offer {
     font-weight: 800;
     font-size: 2vw;
     color: #fff;

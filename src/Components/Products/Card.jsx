@@ -1,14 +1,20 @@
 import React from 'react'
 import { assets } from '../../Assets/assets'
+import { useNavigate } from 'react-router-dom'
 
 const Card = ({ item }) => {
 
+    const navigate = useNavigate();
+
+    const navigateDetails = () => {
+        navigate(`/product/${item.id}}`)
+    }
 
     return (
-        <div className='product-card'>
+        <div className='product-card' onClick={navigateDetails}>
 
             <div className="poster">
-                <img src={item.poster} alt={item.brand} />
+                <img src={item?.poster} alt={item.brand} />
                 <div className="pluse">
                     <img src={assets.add_icon_green} alt="" />
                 </div>

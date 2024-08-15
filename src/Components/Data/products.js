@@ -23,6 +23,24 @@ export const products = [
     {
         "id": 1,
         "poster": image1,
+        "images":[
+            {
+                "id": 1,
+                "image": image3
+            },
+            {
+                "id": 2,
+                "image": image4
+            },
+            {
+                "id": 3,
+                "image": image5
+            },
+            {
+                "id": 4,
+                "image": image6
+            },
+        ],
         "brand": "Unknown",
         "title": "  Lorem ipsum dolor sit amet.",
         "price": 1000,
@@ -36,6 +54,24 @@ export const products = [
     {
         "id": 2,
         "poster": image2,
+        "images":[
+            {
+                "id": 1,
+                "image": image3
+            },
+            {
+                "id": 2,
+                "image": image4
+            },
+            {
+                "id": 3,
+                "image": image5
+            },
+            {
+                "id": 4,
+                "image": image6
+            },
+        ],
         "brand": "Unknown",
         "title": "  Lorem ipsum dolor sit amet.",
         "price": 100,
@@ -49,6 +85,24 @@ export const products = [
     {
         "id": 3,
         "poster": image3,
+        "images":[
+            {
+                "id": 1,
+                "image": image3
+            },
+            {
+                "id": 2,
+                "image": image4
+            },
+            {
+                "id": 3,
+                "image": image5
+            },
+            {
+                "id": 4,
+                "image": image6
+            },
+        ],
         "brand": "Unknown",
         "title": "  Lorem ipsum dolor sit amet.",
         "price": 2000,
@@ -62,6 +116,24 @@ export const products = [
     {
         "id": 4,
         "poster": image4,
+        "images":[
+            {
+                "id": 1,
+                "image": image3
+            },
+            {
+                "id": 2,
+                "image": image4
+            },
+            {
+                "id": 3,
+                "image": image5
+            },
+            {
+                "id": 4,
+                "image": image6
+            },
+        ],
         "brand": "Unknown",
         "title": "  Lorem ipsum dolor sit amet.",
         "price": 100,
@@ -75,6 +147,24 @@ export const products = [
     {
         "id": 5,
         "poster": image5,
+        "images":[
+            {
+                "id": 1,
+                "image": image3
+            },
+            {
+                "id": 2,
+                "image": image4
+            },
+            {
+                "id": 3,
+                "image": image5
+            },
+            {
+                "id": 4,
+                "image": image6
+            },
+        ],
         "brand": "Unknown",
         "title": "  Lorem ipsum dolor sit amet.",
         "price": 199,
@@ -88,6 +178,24 @@ export const products = [
     {
         "id": 6,
         "poster": image6,
+        "images":[
+            {
+                "id": 1,
+                "image": image3
+            },
+            {
+                "id": 2,
+                "image": image4
+            },
+            {
+                "id": 3,
+                "image": image5
+            },
+            {
+                "id": 4,
+                "image": image6
+            },
+        ],
         "brand": "Unknown",
         "title": "  Lorem ipsum dolor sit amet.",
         "price": 1000,
@@ -101,6 +209,24 @@ export const products = [
     {
         "id": 7,
         "poster": image7,
+        "images":[
+            {
+                "id": 1,
+                "image": image3
+            },
+            {
+                "id": 2,
+                "image": image4
+            },
+            {
+                "id": 3,
+                "image": image5
+            },
+            {
+                "id": 4,
+                "image": image6
+            },
+        ],
         "brand": "Unknown",
         "title": "  Lorem ipsum dolor sit amet.",
         "price": 1500,
@@ -114,6 +240,24 @@ export const products = [
     {
         "id": 8,
         "poster": image8,
+        "images":[
+            {
+                "id": 1,
+                "image": image3
+            },
+            {
+                "id": 2,
+                "image": image4
+            },
+            {
+                "id": 3,
+                "image": image5
+            },
+            {
+                "id": 4,
+                "image": image6
+            },
+        ],
         "brand": "Unknown",
         "title": "  Lorem ipsum dolor sit amet.",
         "price": 300,
@@ -127,6 +271,24 @@ export const products = [
     {
         "id": 9,
         "poster": image9,
+        "images":[
+            {
+                "id": 1,
+                "image": image3
+            },
+            {
+                "id": 2,
+                "image": image4
+            },
+            {
+                "id": 3,
+                "image": image5
+            },
+            {
+                "id": 4,
+                "image": image6
+            },
+        ],
         "brand": "Unknown",
         "title": "  Lorem ipsum dolor sit amet.",
         "price": 499,
@@ -140,6 +302,24 @@ export const products = [
     {
         "id": 10,
         "poster": image10,
+        "images":[
+            {
+                "id": 1,
+                "image": image3
+            },
+            {
+                "id": 2,
+                "image": image4
+            },
+            {
+                "id": 3,
+                "image": image5
+            },
+            {
+                "id": 4,
+                "image": image6
+            },
+        ],
         "brand": "Unknown",
         "title": "  Lorem ipsum dolor sit amet.",
         "price": 399,
@@ -153,6 +333,24 @@ export const products = [
     {
         "id": 11,
         "poster": image11,
+        "images":[
+            {
+                "id": 1,
+                "image": image3
+            },
+            {
+                "id": 2,
+                "image": image4
+            },
+            {
+                "id": 3,
+                "image": image5
+            },
+            {
+                "id": 4,
+                "image": image6
+            },
+        ],
         "brand": "Unknown",
         "title": "  Lorem ipsum dolor sit amet.",
         "price": 1000,
@@ -166,6 +364,24 @@ export const products = [
     {
         "id": 12,
         "poster": image12,
+        "images":[
+            {
+                "id": 1,
+                "image": image3
+            },
+            {
+                "id": 2,
+                "image": image4
+            },
+            {
+                "id": 3,
+                "image": image5
+            },
+            {
+                "id": 4,
+                "image": image6
+            },
+        ],
         "brand": "Unknown",
         "title": "  Lorem ipsum dolor sit amet.",
         "price": 499,
@@ -179,6 +395,24 @@ export const products = [
     {
         "id": 13,
         "poster": image13,
+        "images":[
+            {
+                "id": 1,
+                "image": image3
+            },
+            {
+                "id": 2,
+                "image": image4
+            },
+            {
+                "id": 3,
+                "image": image5
+            },
+            {
+                "id": 4,
+                "image": image6
+            },
+        ],
         "brand": "Unknown",
         "title": "  Lorem ipsum dolor sit amet.",
         "price": 1499,
@@ -192,6 +426,24 @@ export const products = [
     {
         "id": 14,
         "poster": image14,
+        "images":[
+            {
+                "id": 1,
+                "image": image3
+            },
+            {
+                "id": 2,
+                "image": image4
+            },
+            {
+                "id": 3,
+                "image": image5
+            },
+            {
+                "id": 4,
+                "image": image6
+            },
+        ],
         "brand": "Unknown",
         "title": "  Lorem ipsum dolor sit amet.",
         "price": 999,
@@ -205,6 +457,24 @@ export const products = [
     {
         "id": 15,
         "poster": image15,
+        "images":[
+            {
+                "id": 1,
+                "image": image3
+            },
+            {
+                "id": 2,
+                "image": image4
+            },
+            {
+                "id": 3,
+                "image": image5
+            },
+            {
+                "id": 4,
+                "image": image6
+            },
+        ],
         "brand": "Unknown",
         "title": "  Lorem ipsum dolor sit amet.",
         "price": 550,
@@ -218,6 +488,24 @@ export const products = [
     {
         "id": 16,
         "poster": image16,
+        "images":[
+            {
+                "id": 1,
+                "image": image3
+            },
+            {
+                "id": 2,
+                "image": image4
+            },
+            {
+                "id": 3,
+                "image": image5
+            },
+            {
+                "id": 4,
+                "image": image6
+            },
+        ],
         "brand": "Unknown",
         "title": "  Lorem ipsum dolor sit amet.",
         "price": 1000,
@@ -231,6 +519,24 @@ export const products = [
     {
         "id": 17,
         "poster": image17,
+        "images":[
+            {
+                "id": 1,
+                "image": image3
+            },
+            {
+                "id": 2,
+                "image": image4
+            },
+            {
+                "id": 3,
+                "image": image5
+            },
+            {
+                "id": 4,
+                "image": image6
+            },
+        ],
         "brand": "Unknown",
         "title": "  Lorem ipsum dolor sit amet.",
         "price": 999,
@@ -244,6 +550,24 @@ export const products = [
     {
         "id": 18,
         "poster": image18,
+        "images":[
+            {
+                "id": 1,
+                "image": image3
+            },
+            {
+                "id": 2,
+                "image": image4
+            },
+            {
+                "id": 3,
+                "image": image5
+            },
+            {
+                "id": 4,
+                "image": image6
+            },
+        ],
         "brand": "Unknown",
         "title": "  Lorem ipsum dolor sit amet.",
         "price": 600,
@@ -257,6 +581,24 @@ export const products = [
     {
         "id": 19,
         "poster": image19,
+        "images":[
+            {
+                "id": 1,
+                "image": image3
+            },
+            {
+                "id": 2,
+                "image": image4
+            },
+            {
+                "id": 3,
+                "image": image5
+            },
+            {
+                "id": 4,
+                "image": image6
+            },
+        ],
         "brand": "Unknown",
         "title": "  Lorem ipsum dolor sit amet.",
         "price": 1000,
@@ -270,6 +612,24 @@ export const products = [
     {
         "id": 20,
         "poster": image20,
+        "images":[
+            {
+                "id": 1,
+                "image": image3
+            },
+            {
+                "id": 2,
+                "image": image4
+            },
+            {
+                "id": 3,
+                "image": image5
+            },
+            {
+                "id": 4,
+                "image": image6
+            },
+        ],
         "brand": "Unknown",
         "title": "  Lorem ipsum dolor sit amet.",
         "price": 100,

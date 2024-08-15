@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import './Navbar.css'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { FaUser, FaRegUser } from 'react-icons/fa'
 import { GiBeachBag } from "react-icons/gi";
 import { MdOutlineEventNote } from "react-icons/md";
@@ -11,10 +11,14 @@ import { MdCardGiftcard } from "react-icons/md";
 const Navbar = () => {
 
     const [isOpen, setIsOpen] = useState(false);
-
+    const navigate = useNavigate();
     const toggleDropdown = () => {
         setIsOpen(!isOpen);
     };
+
+    const handleCart = () =>{
+          navigate('/cart')
+    }
 
     return (
         <div className='navbar'>
@@ -46,7 +50,7 @@ const Navbar = () => {
                 </div>
                 <div className="line"></div>
                 <div className="cart-btn">
-                    <p><GiBeachBag size={25} /></p>
+                    <p><GiBeachBag onClick={handleCart} size={25} /></p>
                     <div className="item">0</div>
                 </div>
             </div>
