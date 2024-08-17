@@ -17,7 +17,7 @@
   font-size: 23px;
   font-weight: 700;
   text-transform: uppercase;
-  color: #F5004F;
+  color: #2874F0;
 }
 
 .navbar .logo span {
@@ -29,7 +29,7 @@
 .navbar .right {
   display: flex;
   align-items: center;
-  gap: 50px;
+  gap: 20px;
 
 }
 
@@ -82,7 +82,7 @@
 }
 
 .profile .dropdown .menu a:hover {
-  color: #F5004F;
+  color: #2874F0;
 }
 
 .profile .dropdown .menu a p {
@@ -105,15 +105,25 @@
 }
 
 .dropdown .open-btn {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
   outline: none;
   border: none;
   font-size: 25px;
   cursor: pointer;
-  color: #fff;
-  background-color: blueviolet;
+  line-height: 20px;
+  padding: 5px 10px;
+  text-align: right;
+
+}
+
+.dropdown .open-btn p{
+  color: #2874F0;
+  font-size: 16px;
+}
+
+.dropdown .open-btn .name{
+  color: #0C1844;
+  font-size: 17px;
+  font-weight: 500;
 }
 
 .right .cart-btn {
@@ -127,7 +137,7 @@
 }
 
 .right .cart-btn .item {
-  background-color: #F5004F;
+  background-color: #2874F0;
   position: absolute;
   top: -4px;
   right: -18px;

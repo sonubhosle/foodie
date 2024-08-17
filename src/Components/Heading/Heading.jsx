@@ -3,8 +3,8 @@ import './Heading.css'
 
 const Heading = ({heading}) => {
     return (
-        <div className='heading'>
-            <h2>{heading}</h2>
+        <div className='heading-cmp ' >
+            <div className='h6'>{heading}</div>
             <div className="box">
                 <div className="line"></div>
             </div>

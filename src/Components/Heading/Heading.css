@@ -1,17 +1,17 @@
-.heading {
+.heading-cmp {
     width: 100%;
     height: auto;
     position: relative;
     margin: 40px 20px 0px 20px;
 }
 
-.heading h2 {
+.heading-cmp .h6 {
     font-size: 22px;
     font-weight: 500;
     color: #555454;
 }
 
-.heading .box {
+.heading-cmp .box {
     width: 100px;
     height: 3px;
     background-color: #e2e2e2;
@@ -20,17 +20,17 @@
     overflow: hidden;
 }
 
-.heading .box .line {
+.heading-cmp .box .line {
     width: 60px;
     height: 100%;
-    background-color: #F5004F;
+    background-color: #2874F0;
     animation: line 2s ease infinite;
 }
 
 
 @keyframes line {
     from {
-         transform: translateX(-100%);
+        transform: translateX(-100%);
     }
 
     to {

@@ -63,7 +63,7 @@ footer .footer_container {
 
 
 .footer_container .left_sect .footer_icons a:hover {
-    color: #F5004F;
+    color: #2874F0;
 }
 
 
@@ -93,7 +93,7 @@ footer .footer_container {
 
 .footer_container .grid_section .grid_box a:hover {
     padding-left: 10px;
-    color: #F5004F;
+    color: #2874F0;
 }
 
 .footer_container .grid_section .grid_box .heading {
@@ -106,7 +106,7 @@ footer .footer_container {
 .footer_container .grid_section .grid_box .line {
     height: 30px;
     width: 3px;
-    background-color: #F5004F;
+    background-color: #2874F0;
     border-radius: 5px;
 }
 

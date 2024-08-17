@@ -2,7 +2,15 @@ import React from 'react'
 import { cart } from '../../Components/Data/cart'
 import Cart_Card from './Cart_Card'
 import './Cart.css'
+import { useNavigate } from 'react-router-dom'
 const Cart = () => {
+
+  const navigate = useNavigate();
+
+  const handleCheckout = () => {
+    navigate('/checkout?step=2');
+}
+
   return (
     <div className='cart'>
       <div className="cart-items">
@@ -48,7 +56,7 @@ const Cart = () => {
         <div className="line"></div>
         <p className='green bold-xl'>You will save ₹2,837 on this order</p>
 
-        <div className="checkout-btn">Checkout</div>
+        <div className="checkout-btn" onClick={handleCheckout } >Checkout</div>
         </div>
       </div>
     </div>

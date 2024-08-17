@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import { products } from '../../Components/Data/products';
 import Heading from '../../Components/Heading/Heading';
 import './Product_Details.css'
@@ -12,7 +12,7 @@ import Stars from 'react-rating-stars-component'
 
 const Product_Details = () => {
     const { id } = useParams();
-
+    const navigate = useNavigate();
 
     const product = products.find((item) => item.id === parseInt(id));
     const [mainImage, setMainImage] = useState(product ? product.poster : '');
@@ -22,6 +22,9 @@ const Product_Details = () => {
 
     };
 
+    const handleCart = () => {
+        navigate('/cart')
+    }
 
 
     const ratingChanged = (newRating) => {
@@ -80,7 +83,7 @@ const Product_Details = () => {
                                     <div className='stock'>{product.quantity > 0 ? <div className="in-stock">In Stock</div> : <div className='out-of-stock'>Comming Soon</div>}</div>
                                     <div className="heading-2">Description</div>
                                     <p className='desc'> <span> {product.description}</span></p>
-                                    <div className="checkout-btn">Checkout</div>
+                                    <div className="checkout-btn" onClick={handleCart}>Add To Cart</div>
                                 </div>
 
                             </div>
@@ -122,7 +125,7 @@ const Product_Details = () => {
                         <div className="date">Date : 24 Aug 2024</div>
                     </div>
                 </div>
-                
+
                 <form className="review-form">
                     <input type="text" name="" id="" placeholder='Enter Your Review' />
                     <div>

@@ -6,6 +6,7 @@ import { GiBeachBag } from "react-icons/gi";
 import { MdOutlineEventNote } from "react-icons/md";
 import { RiLogoutBoxRLine } from "react-icons/ri";
 import { MdCardGiftcard } from "react-icons/md";
+import {PiHandsPrayingBold} from 'react-icons/pi'
 
 
 const Navbar = () => {
@@ -16,8 +17,8 @@ const Navbar = () => {
         setIsOpen(!isOpen);
     };
 
-    const handleCart = () =>{
-          navigate('/cart')
+    const handleCart = () => {
+        navigate('/cart')
     }
 
     return (
@@ -32,9 +33,10 @@ const Navbar = () => {
                             <div className="auth-btn"><FaUser size={20} /> Login / Signup </div>
                         ) : (
                             <div className="dropdown">
-                                <button className='open-btn' onClick={toggleDropdown}>
-                                    S
-                                </button>
+                                <div className='open-btn' onClick={toggleDropdown}>
+                                    <p>Welcome </p>
+                                    <div className="name">Sonu Bhosle</div>
+                                </div>
 
                                 <div className={`menu ${isOpen ? 'open' : ''}`}>
                                     <Link to='/profile'><p><FaRegUser /></p> Profile</Link>

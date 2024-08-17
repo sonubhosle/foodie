@@ -81,7 +81,7 @@
 }
 
 .product-card:hover .title {
-    color: #F5004F;
+    color: #2874F0;
 }
 
 
@@ -124,7 +124,7 @@
 }
 
 .product-info .quantity .out-of-stock {
-    color: #F5004F;
+    color: #2874F0;
     font-size: 14px;
 
 }

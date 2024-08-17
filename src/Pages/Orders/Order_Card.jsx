@@ -29,19 +29,19 @@ const Order_Card = ({ item }) => {
   return (
     <div className='order-card'>
       <div className='order-left'>
-        <img src={item.poster} alt={item.title} className="order-img" />
+        <img src={item?.poster} alt={item?.title} className="order-img" />
         <div className="order-info">
-          <div className="order-brand">{item.brand}</div>
-          <div className="order-title">{item.title}</div>
+          <div className="order-brand">{item?.brand}</div>
+          <div className="order-title">{item?.title}</div>
         </div>
       </div>
-      <div className="order-price">₹{item.discountPrice}</div>
+      <div className="order-price">₹{item?.discountPrice}</div>
       <div className="order-status">
         <div className="status">
-          <div className="dot" style={{ backgroundColor: getStatusColor(item.orderStatus) }}></div>
-          {item.orderStatus} on {item.deliveryDate || 'Aug 09'}
+          <div className="dot" style={{ backgroundColor: getStatusColor(item?.orderStatus) }}></div>
+          {item?.orderStatus} on {item?.deliveryDate || 'Aug 09'}
         </div>
-        {item.orderStatus === 'Delivered' && <span>Your item has been delivered</span>}
+        {item?.orderStatus === 'Delivered' && <span>Your item has been delivered</span>}
         <div className="rating-button" onClick={handleRating}>
           <FaStar /> Rate & Review Product
         </div>

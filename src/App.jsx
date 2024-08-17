@@ -5,6 +5,7 @@ import { Route, Routes } from 'react-router-dom'
 import Loader from './Components/Loader/Loader';
 import Footer from './Components/Footer/Footer';
 import Rating_Reviews from './Components/Rating_Reviews/Rating_Reviews';
+import Checkout from './Components/Checkout/Checkout';
 const Product_Details = lazy(() => import('./Pages/Product_Details/Product_Details'));
 const Filtered_Products = lazy(() => import('./Components/Products/Filtered_Products'));
 const Home = lazy(() => import('./Pages/Home/Home'));
@@ -23,6 +24,7 @@ const App = () => {
         <Route path="/products/:name" element={<Filtered_Products />} />
         <Route path='/product/:id' element={<Product_Details />} />
         <Route path='/product/review/rating' element={<Rating_Reviews />} />
+        <Route path='/checkout/' element={<Checkout />} />
       </Routes>
       <Footer />
     </Suspense>

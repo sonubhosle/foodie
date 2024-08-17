@@ -1,5 +1,6 @@
 .banner {
-    width: 100%;
+    width: 97%;
+    margin: 0 auto;
     height: 300px;
     position: relative;
     background-color: #fff;
