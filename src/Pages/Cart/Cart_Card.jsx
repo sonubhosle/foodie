@@ -20,11 +20,12 @@ const Cart_Card = ({item}) => {
                     <div className="cart-discount-price">₹{item.discountPrice}</div>
                     <div className="cart-discount">{item.discountedPersent}% Off</div>
                 </div>
-                <button className="remove-cart">Remove</button>
             </div>
         </div>
         <div className="right-side">
         Delivery by Sat Aug 17 / <p>Free</p>
+        <button className="remove-cart">Remove</button>
+
         </div>
     </div>
   )
