@@ -28,7 +28,7 @@ const Rating_Reviews = () => {
                 <div className="review-section">
                     <h1 className='mb'>Review this product</h1>
                     <form >
-                        <div className="form-group">
+                        <div className="form-group-rating">
                             <div className="input-fields">
                                 <div className="label">Description</div>
                                 <textarea className='big-input' name="" id="" placeholder='Description' />
