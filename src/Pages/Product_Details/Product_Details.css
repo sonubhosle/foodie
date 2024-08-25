@@ -7,7 +7,7 @@
 
 .producd-details .product {
     display: flex;
-    width: 80%;
+    width: 100%;
     gap: 20px;
 }
 
@@ -130,6 +130,11 @@
     align-items: center;
     font-size: 15px;
     gap: 5px;
+    background-color: #2874F0;
+    color: #fff;
+    justify-content: center;
+    padding: 2px 5px;
+    border-radius: 3px;
 }
 
 .details .info .rating-reviews .rating .stars {
@@ -185,7 +190,7 @@
 }
 
 .details .info .checkout-btn {
-    background-color: #1A3636;
+    background-color: #2874F0;
     color: #fff;
     text-transform: uppercase;
     font-weight: 600;
@@ -207,96 +212,5 @@
 }
 
 
-/* Offers section*/
 
-.offer-section {
-    width: 25%;
-    border-radius: 3px;
-    position: relative;
-    cursor: pointer;
-}
 
-.offer-section .offer-item {
-    width: 100%;
-    height: 200px;
-    position: relative;
-    background-color: #fff;
-    padding: 5px;
-    border-radius: 3px;
-
-}
-
-.offer-section .offer-item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.offer-section .offer-item .offer-discout {
-    position: absolute;
-    top: 0;
-    left: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: 100%;
-
-}
-
-.offer-section .offer-item .offer-discout p {
-    font-weight: 600;
-    font-size: 1.5vw;
-    background-color: #1A3636;
-    color: #fff;
-    padding: 6px 10px;
-    border-radius: 3px;
-}
-
-/* Review Section */
-
-.review-section {
-    width: 97%;
-    margin: 20px auto;
-    background-color: #fff;
-    border-radius: 3px;
-}
-
-.review-section .user-details {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    border-bottom: 1px solid #f7f7f7;
-    padding: 15px;
-}
-
-.review-section .user-details .user-image {
-    width: 50px;
-    height: 50px;
-    position: relative;
-    background-color: #2874F0;
-    padding: 1px;
-    border-radius: 50%;
-}
-
-.user-details .user-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 50%;
-}
-
-.user-details .user-detils .user-name{
-    font-size: 17px;
-    color: #1A3636;
-}
-
-.user-details .user-detils .date{
-    font-size: 14px;
-    color: #6d6d6d;
-    margin-top: 5px;
-}
-
-.review-section .review-form{
-    padding: 20px 15px;
-}

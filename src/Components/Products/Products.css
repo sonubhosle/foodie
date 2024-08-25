@@ -77,11 +77,16 @@
     font-size: 16px;
     color: #050505;
     margin: 5px 0px 10px 0px;
+    width: 100%;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
     transition: 0.5s ease;
 }
 
 .product-card:hover .title {
     color: #2874F0;
+
 }
 
 
@@ -110,17 +115,27 @@
     font-size: 14px;
 }
 
-.product-info .quantity {
+.product-info .rating_quantity {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     margin-top: 15px;
-    float: right;
-    padding: 5px;
+}
+
+.product-info .rating_quantity .ratings {
+    background-color: #2874F0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2px 6px;
+    gap: 5px;
+    border-radius: 2px;
+    color: #fff;
 }
 
 .product-info .quantity .in-stock {
     color: #50B498;
     font-size: 14px;
-
-
 }
 
 .product-info .quantity .out-of-stock {
@@ -155,6 +170,12 @@
     gap: 20px;
     width: 70%;
     justify-content: right;
+}
+
+.filtering .filter-options .select {
+    display: flex;
+    align-items: center;
+    gap: 15px;
 }
 
 .filtering .filter-options .search {
@@ -240,6 +261,34 @@
     background-color: #f1f1f1;
 }
 
+@media(max-width:991px) {
+    .filtering {
+        flex-direction: column;
+        height: auto;
+        padding: 15px 0px;
+    }
+
+    .filtering h2 {
+        margin-bottom: 25px;
+    }
+
+    .filtering .filter-options {
+        justify-content: space-between;
+        width: 100%;
+        padding: 0px 2%;
+    }
+}
+
+@media(max-width:768px) {
+    .filtering .filter-options {
+        flex-direction: column;
+    }
+
+    .filtering .filter-options .search {
+        position: relative;
+        width: 100%;
+    }
+}
 
 @media(max-width:576px) {
     .product-grid {

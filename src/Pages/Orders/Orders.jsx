@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import './Orders.css';
-import Heading from '../../Components/Heading/Heading';
-import { cart } from '../../Components/Data/cart';
 import Order_Card from './Order_Card';
+import { getAllOrders } from '../../State/Orders/Action';
+import Heading from '../../Components/Heading/Heading';
 import { FiSearch } from 'react-icons/fi';
 
 const statusOptions = ['Delivered', 'Cancelled', 'Shipped', 'Placed', 'Pending'];
@@ -10,15 +11,23 @@ const statusOptions = ['Delivered', 'Cancelled', 'Shipped', 'Placed', 'Pending']
 const Orders = () => {
   const [Statuses, setStatuses] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
-  const [filteredOrders, setFilteredOrders] = useState(cart);
   const [loading, setLoading] = useState(false);
+  const orders = useSelector(state => state.order.orders);
+  const dispatch = useDispatch();
+  const [filteredOrders, setFilteredOrders] = useState([]);
 
   useEffect(() => {
-    setLoading(true);
+    dispatch(getAllOrders());
+  }, [dispatch]);
+
+  useEffect(() => {
     const timer = setTimeout(() => {
-      const filtered = cart.filter((order) => {
-        const matchesStatus = Statuses.length === 0 || Statuses.includes(order.orderStatus);
-        const matchesSearch = order.title.toLowerCase().includes(searchTerm.toLowerCase());
+      const filtered = orders.filter(order => {
+        const orderStatus = order.orderStatus ? order.orderStatus.toUpperCase() : '';
+        const matchesStatus = Statuses.length === 0 || Statuses.includes(orderStatus);
+        const matchesSearch = order.orderItems.some(item =>
+          item.product.title.toLowerCase().includes(searchTerm.toLowerCase())
+        );
         return matchesStatus && matchesSearch;
       });
 
@@ -27,13 +36,12 @@ const Orders = () => {
     }, 500);
 
     return () => clearTimeout(timer);
-  }, [Statuses, searchTerm]);
+  }, [Statuses, searchTerm, orders]);
 
   const handleStatusChange = (status) => {
-    setStatuses((prevSelected) =>
-      prevSelected.includes(status)
-        ? prevSelected.filter((item) => item !== status)
-        : [...prevSelected, status]
+    const formattedStatus = status.toUpperCase();
+    setStatuses((prevSelected) => 
+      prevSelected.includes(formattedStatus) ? [] : [formattedStatus]
     );
   };
 
@@ -50,14 +58,24 @@ const Orders = () => {
           <h2>Order Status</h2>
           {statusOptions.map((status, index) => (
             <div className="value" key={index}>
-              <input type="checkbox" checked={Statuses.includes(status)} onChange={() => handleStatusChange(status)} />
+              <input
+                type="checkbox"
+                checked={Statuses.includes(status.toUpperCase())}
+                onChange={() => handleStatusChange(status)}
+              />
               <p>{status}</p>
             </div>
           ))}
         </div>
         <div className="my-orders">
           <div className="search-order">
-            <input type="text" className="search-bar" placeholder="Search your orders here" value={searchTerm} onChange={handleSearchChange} />
+            <input
+              type="text"
+              className="search-bar"
+              placeholder="Search your orders here"
+              value={searchTerm}
+              onChange={handleSearchChange}
+            />
             <button className="search"><FiSearch size={16} /> Search Orders</button>
           </div>
           {loading ? (
@@ -67,9 +85,7 @@ const Orders = () => {
           ) : (
             <div className="order">
               {filteredOrders.length > 0 ? (
-                filteredOrders.map((item, index) => (
-                  <Order_Card item={item} key={index} />
-                ))
+                filteredOrders.map((order) => <Order_Card key={order._id} order={order} />)
               ) : (
                 <div className='no-products'>
                   <p>No orders found</p>

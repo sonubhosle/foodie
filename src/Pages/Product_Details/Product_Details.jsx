@@ -1,55 +1,91 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link, useNavigate, useParams } from 'react-router-dom';
-import { products } from '../../Components/Data/products';
+import { images } from '../../Components/Data/products';
 import Heading from '../../Components/Heading/Heading';
 import './Product_Details.css'
 import { FiChevronRight } from "react-icons/fi";
 import Card from '../../Components/Products/Card';
 import '../../Components/Products/Products.css'
-import { offer } from '../../Components/Data/offers';
 import '../../Components/Offers/Offers.css';
-import Stars from 'react-rating-stars-component'
+import { useDispatch, useSelector } from 'react-redux';
+import { findProductsById } from '../../State/Products/Action';
+import axios from 'axios'
+import { addItemToCart } from '../../State/Carts/Action';
+import { toast } from 'react-toastify'
+import { FaStar } from 'react-icons/fa';
+import Reviews from '../../Components/Rating_Reviews/Reviews';
 
 const Product_Details = () => {
-    const { id } = useParams();
+
+    const params = useParams();
     const navigate = useNavigate();
+    const dispatch = useDispatch();
+    const [relatedProducts, setRelatedProducts] = useState([]);
+    const products = useSelector(state => state.products);
 
-    const product = products.find((item) => item.id === parseInt(id));
-    const [mainImage, setMainImage] = useState(product ? product.poster : '');
 
-    const handleImageClick = (imageUrl) => {
-        setMainImage(imageUrl);
 
+
+
+    const handleAddTocart = () => {
+        const data = { productId: params.productId };
+        dispatch(addItemToCart(data))
+            .then(() => {
+                toast.success('Cart added successfully!');
+                navigate('/cart');
+            })
+            .catch(() => {
+                toast.error('Failed to add to cart!');
+            });
     };
 
-    const handleCart = () => {
-        navigate('/cart')
-    }
+    useEffect(() => {
+        const data = { productId: params.productId };
+        dispatch(findProductsById(data));
+    }, [params.productId, dispatch]);
 
 
-    const ratingChanged = (newRating) => {
-        console.log(newRating);
-    };
 
 
-    const best_offers = offer.slice(0, 2)
+
+
+
+
+
+
+
+
+    useEffect(() => {
+        const fetchRelated = async () => {
+            try {
+                const response = await axios.get(`http://localhost:4000/api/products/${params.productId}/related`);
+                setRelatedProducts(response.data); // Directly use response.data
+            } catch (error) {
+                alert('Failed to fetch related products.');
+            }
+        };
+
+        fetchRelated();
+    }, [params.productId]);
+
 
     return (
         <>
             <Heading heading={'Product Details'} />
             <div className='producd-details'>
                 <div className="product">
-                    {product ? (
+                    {products.product ? (
                         <>
                             <div className="image-section">
                                 <div className="main-image">
-                                    <img src={mainImage} alt={product.title} />
+                                    <img src={products?.product.image} alt={products?.product.title} />
                                 </div>
 
                                 {/* Related Images */}
                                 <div className='gallary' >
-                                    {product.images.map((image, index) => (
-                                        <img key={index} src={image.image} alt={`Related ${index}`} onClick={() => handleImageClick(image.image)} className='related-images' />))}
+                                    {
+                                        images.map((item, index) => (<img key={index} src={item.image} className='related-images' />))
+                                    }
                                 </div>
                             </div>
                             <div className="details">
@@ -60,30 +96,30 @@ const Product_Details = () => {
                                     <p><FiChevronRight /></p>
                                     <Link>Product</Link>
                                     <p><FiChevronRight /></p>
-                                    <Link>{product.title}</Link>
+                                    <Link>{products?.product.title}</Link>
                                 </div>
                                 <div className="info">
-                                    <p className='brand'>{product.brand}</p>
-                                    <p className='title'>{product.title}</p>
+                                    <p className='brand'>{products?.product.brand}</p>
+                                    <p className='title'>{products?.product.title}</p>
                                     <div className="heading-2">Price</div>
                                     <div className="price-box">
-                                        <p className='discount-price'>₹{product.price}</p>
-                                        <p className=' price'>₹{product.discountPrice}</p>
-                                        <p className='discount'>{product.discountedPersent}% Off</p>
+                                        <p className='discount-price'>₹{products?.product.price}</p>
+                                        <p className=' price'>₹{products?.product.discountedPrice}</p>
+                                        <p className='discount'>{products?.product.discountPersent}% Off</p>
                                     </div>
                                     <div className="heading-2">Rating & Reviews</div>
                                     <div className="rating-reviews">
 
-                                        <div className="reviews">Reviews : 1,200 </div>
+                                        <div className="reviews">Reviews : {products?.product.numReviews}  </div>
                                         <div className="rating">
-                                            Rating :  <Stars classNames={'stars'} count={5} size={26} onChange={ratingChanged} isHalf={true} />
+                                            {products?.product.numRatings} <FaStar size={14} />
                                         </div>
                                     </div>
                                     <div className="heading-2">Available</div>
-                                    <div className='stock'>{product.quantity > 0 ? <div className="in-stock">In Stock</div> : <div className='out-of-stock'>Comming Soon</div>}</div>
+                                    <div className='stock'>{products?.product.quantity > 0 ? <div className="in-stock">In Stock</div> : <div className='out-of-stock'>Comming Soon</div>}</div>
                                     <div className="heading-2">Description</div>
-                                    <p className='desc'> <span> {product.description}</span></p>
-                                    <div className="checkout-btn" onClick={handleCart}>Add To Cart</div>
+                                    <p className='desc'> <span> {products?.product.description}</span></p>
+                                    <div className="checkout-btn" onClick={handleAddTocart}>Add To Cart</div>
                                 </div>
 
                             </div>
@@ -94,50 +130,18 @@ const Product_Details = () => {
                         </div>
                     )}
                 </div>
-                {/* Offfers Section */}
-                <div className="offer-section">
-                    <div className="offer-grid min-width">
-                        {
-                            best_offers.map((item, index) => (
-                                <div className="offer-item" key={index}>
-                                    <img src={item.image} alt={item.off} />
-                                    <div className="offer-discout">
-                                        <p>{item.off}</p>
-                                    </div>
-                                </div>
-                            ))
-                        }
-                    </div>
-                </div>
 
             </div>
 
 
             {/* Reviews */}
-            <Heading heading={'Give Review'} />
-            <div className="review-section">
-                <div className="user-details">
-                    <div className="user-image">
-                        <img src={product.poster} alt="" />
-                    </div>
-                    <div className="user-detils">
-                        <div className="user-name">Sonu Bhosle</div>
-                        <div className="date">Date : 24 Aug 2024</div>
-                    </div>
-                </div>
-
-                <form className="review-form">
-                    <input type="text" name="" id="" placeholder='Enter Your Review' />
-                    <div>
-                        <button type='submit'>Submit</button>
-                    </div>
-                </form>
-            </div>
+            <Heading heading={'Reviews'} />
+            <Reviews  productId={params.productId} />
             {/* Related Products */}
             <Heading heading={'Related Products'} />
             <div className="product-grid">
                 {
-                    products.map((item, index) => <Card item={item} key={index} />)
+                    relatedProducts?.map((item, index) => <Card item={item} key={index} />)
                 }
             </div>
         </>

@@ -145,3 +145,51 @@
     border-radius: 3px;
     text-transform: uppercase;
 }
+
+
+
+/* user review card */
+
+.review-card {
+    width: 97%;
+    margin: 20px auto;
+    height: auto;
+    background-color: #fff;
+    position: relative;
+    border-radius: 4px;
+}
+
+.review-card .top-header {
+    padding: 10px 10px;
+    border-bottom: 1px solid #dbdbdb;
+    display: flex;
+    gap: 10px;
+}
+
+
+.top-header .user-photo {
+    width: 50px;
+    height: 50px;
+    position: relative;
+}
+
+.top-header .user-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.top-header .name {
+    color: #131212;
+    font-size: 17px;
+}
+
+.top-header .date {
+    color: #6d6d6d;
+    font-size: 14px;
+}
+
+.review-card .reviews-box {
+    padding: 15px;
+}

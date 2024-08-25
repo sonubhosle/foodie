@@ -1,16 +1,44 @@
 
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Style.css';
-import { addresses } from '../Data/addresses';
 import Address_Card from '../Address/Address_Card';
-import Heading from '../Heading/Heading'
-
+import { useDispatch, useSelector } from 'react-redux';
+import { createOrder } from '../../State/Orders/Action';
+import axios from 'axios'
 const Delivery_Address = () => {
-
+  const [addresses, setAddresses] = useState([]);
   const [selectedAddress, setSelectedAddress] = useState(null);
   const [showForm, setShowForm] = useState(addresses.length === 0);
   const navigate = useNavigate()
+  const dispatch = useDispatch();
+  const auth = useSelector(state => state.auth);
+  const userId = auth?.user?._id;
+  const jwt = localStorage.getItem("jwt");
+
+  // Fetching User Addresses
+
+  useEffect(() => {
+    const fetchAddresses = async () => {
+      try {
+        const response = await axios.get(`http://localhost:4000/api/user/addresses/${userId}`, {
+          headers: {
+            Authorization: `Bearer ${jwt}`,
+          },
+        });
+        setAddresses(response.data);
+        console.log("Fetched addresses:"); // Log fetched addresses
+      } catch (error) {
+        console.log(error.message);
+      }
+    };
+
+    if (userId && jwt) {
+      fetchAddresses();
+    }
+  }, [userId, jwt]);
+
+
   const handleAddressSelect = (e) => {
     setSelectedAddress(JSON.parse(e.target.value));
   };
@@ -24,19 +52,20 @@ const Delivery_Address = () => {
     } else {
       const data = new FormData(e.currentTarget);
       address = {
-        firstName: data.get('firstName'),
-        lastName: data.get('lastName'),
-        streetAddress: data.get('address'),
+        name: data.get('name'),
+        surname: data.get('surname'),
+        landmark: data.get('address'),
         city: data.get('city'),
         state: data.get('state'),
-        zipCode: data.get('zip'),
-        mobile: data.get('phoneNumber'),
+        pincode: data.get('pincode'),
+        mobile: data.get('mobile'),
         email: data.get('email'),
+        country: data.get('country')
       };
     }
 
     const orderData = { address, navigate };
-    console.log(orderData);
+    dispatch(createOrder(orderData));
   };
 
   return (
@@ -45,7 +74,7 @@ const Delivery_Address = () => {
       {addresses.length > 0 && (
         <div className='address-grid'>
           {addresses.map((addr, index) => (
-            <Address_Card addr={addr} index={index} selectedAddress={selectedAddress} handleAddressSelect={handleAddressSelect} navigate={navigate} />
+            <Address_Card addr={addr} index={index} dispatch={dispatch} selectedAddress={selectedAddress} handleAddressSelect={handleAddressSelect} navigate={navigate} />
           ))}
         </div>
       )}
@@ -57,16 +86,16 @@ const Delivery_Address = () => {
             <form onSubmit={handleSubmit}>
               <div className="form-group">
                 <div className="fields">
-                  <label htmlFor='firstName'>First Name</label>
-                  <input required type='text' id='firstName' name='firstName'  placeholder='Enter your first name' disabled={!!selectedAddress} />
+                  <label htmlFor='firstName'>Name</label>
+                  <input required type='text' id='name' name='name' placeholder='Enter your first name' disabled={!!selectedAddress} />
                 </div>
                 <div className="fields">
-                  <label htmlFor='lastName'>Last Name</label>
-                  <input required type='text' id='lastName' name='lastName' placeholder='Enter your last name' disabled={!!selectedAddress} />
+                  <label htmlFor='lastName'>Surname</label>
+                  <input required type='text' id='surname' name='surname' placeholder='Enter your last name' disabled={!!selectedAddress} />
                 </div>
                 <div className="fields">
-                  <label htmlFor='phoneNumber'>Phone Number</label>
-                  <input required type='text' id='phoneNumber' name='phoneNumber' placeholder='Enter mobile number here' disabled={!!selectedAddress} />
+                  <label htmlFor='mobile'>Phone Number</label>
+                  <input required type='text' id='mobile' name='mobile' placeholder='Enter mobile number here' disabled={!!selectedAddress} />
                 </div>
               </div>
               <div className="form-group">
@@ -79,14 +108,18 @@ const Delivery_Address = () => {
                   <input required type='text' id='state' name='state' placeholder='Enter state here' disabled={!!selectedAddress} />
                 </div>
                 <div className="fields">
-                  <label htmlFor='zip'>Zip Code/Postal Code</label>
-                  <input required type='text' id='zip' name='zip' placeholder='Enter pincode here' disabled={!!selectedAddress} />
+                  <label htmlFor='country'>Country</label>
+                  <input required type='text' id='country' name='country' placeholder='Enter pincode here' disabled={!!selectedAddress} />
                 </div>
               </div>
               <div className="form-group">
                 <div className="fields">
                   <label htmlFor='email'>Email</label>
                   <input required type='email' id='email' name='email' placeholder='Enter email here' disabled={!!selectedAddress} />
+                </div>
+                <div className="fields">
+                  <label htmlFor='zip'>Zip Code/Postal Code</label>
+                  <input required type='text' id='pincode' name='pincode' placeholder='Enter pincode here' disabled={!!selectedAddress} />
                 </div>
               </div>
               <div className="form-group">

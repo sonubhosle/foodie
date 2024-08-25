@@ -1,22 +1,23 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
+import { createOrder } from '../../State/Orders/Action'
 
-const Address_Card = ({ addr, index, selectedAddress, handleAddressSelect,navigate }) => {
-
-
+const Address_Card = ({ addr, index, selectedAddress, dispatch, handleAddressSelect, navigate }) => {
 
     return (
         <div key={index} className="address_card">
             <label htmlFor={`address-${index}`} className="custom-radio-label">
                 <div className="custom-radio-indicator"></div>
                 <div className="address_details">
-                    <div className="user_name">Name: {addr.firstName} {addr.lastName}</div>
+                    <div className="user_name">Name: {addr.name} {addr.surname}</div>
                     <div className="email">Email: {addr.email}</div>
                     <div className="mobile">Mobile: {addr.mobile}</div>
-                    <div className="pincode">Pincode: {addr.zipCode}</div>
-                    <div className="street">Street: {addr.streetAddress}</div>
+                    <div className="pincode">Pincode: {addr.pincode}</div>
+                    <div className="street">Street: {addr.landmark}</div>
                     <div className="state_city">
                         <div className="city">City: {addr.city}</div>
                         <div className="state">State: {addr.state}</div>
+                        <div className="state">State: {addr.country}</div>
                     </div>
                 </div>
             </label>
@@ -28,7 +29,7 @@ const Address_Card = ({ addr, index, selectedAddress, handleAddressSelect,naviga
                         className="custom-radio-input"
                     />
                 </div>
-                <button className="deliver-button" onClick={() => console.log({ address: addr, navigate })}>
+                <button className="deliver-button" type='submit' onClick={() => dispatch(createOrder({ address: addr, navigate }))}>
                     Deliver Here
                 </button>
             </div>

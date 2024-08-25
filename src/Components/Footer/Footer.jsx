@@ -44,7 +44,7 @@ const footer = [
     ]
   },
   {
-    "id": 2,
+    "id": 3,
     "heading": "Useful links",
     links: [
       {
@@ -65,7 +65,7 @@ const footer = [
     ]
   },
   {
-    "id": 2,
+    "id": 4,
     "heading": "Top Brands",
     links: [
       {
@@ -106,7 +106,7 @@ const Footer = () => {
         </div>
         <div className="grid_section">
           {
-            footer.map((item, index) => {
+            footer.map((item,index) => {
               return (
                 <div className="grid_box" key={index}>
                   <div className="heading"> <div className="line"></div> <h2>{item.heading}</h2> </div>
