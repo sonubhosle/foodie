@@ -15,17 +15,13 @@ body {
   overflow-x: hidden;
 }
 
+
 a {
   text-decoration: none;
 }
 
 .flex {
   display: flex;
-}
-
-.app {
-  width: 80%;
-  margin: 0px auto;
 }
 
 .mb {
