@@ -15,9 +15,6 @@ const Card = ({ item }) => {
         <div className='product-card' onClick={navigateDetails}>
             <div className="poster">
                 <img src={item.image} alt={item.brand} />
-                <div className="pluse">
-                    <img src={assets.add_icon_green} alt="" />
-                </div>
             </div>
             <div className="product-info">
                 <div className="brand">{item.brand}</div>
@@ -27,25 +24,39 @@ const Card = ({ item }) => {
                     <div className="price">₹{item.price}</div>
                     <div className="discountPersent">{item.discountPersent}% Off</div>
                 </div>
-                <div className="rating_quantity">
-                    {item.numRatings > 0 && (
-                        <div className="ratings">
+                <div className="quantity">
+                    {item.quantity > 0 ? (
+                        <p className='in-stock'>In Stock</p>
+                    ) : (
+                        <p className='out-of-stock'>Out of Stock</p>
+                    )}
+                </div>
+                <div className="reviews">
+                    {item.numReviews > 0 ? (
+                        <div className='review'>
+                            ({item.numReviews} Reviews)
+                        </div>
+                    ) : (
+                        <div className='no-reviews'>
+                            No reviews
+                        </div>
+                    )}
+                </div>
+                <div className="ratings">
+                    {item.numRatings > 0 ? (
+                        <div className='rating'>
                             {item.numRatings} <FaStar size={14} />
                         </div>
-                    )}
-                    {item.numReviews > 0 && (
-                        <div className="ratings">
-                            {item.numReviews} <FaStar size={14} />
+                    ) : (
+                        <div className="rating">
+                            0 <FaStar size={14} />
                         </div>
-                    )}
-                    <div className="quantity">
-                        {item.quantity > 0 ? (
-                            <p className='in-stock'>In Stock</p>
-                        ) : (
-                            <p className='out-of-stock'>Out of Stock</p>
-                        )}
-                    </div>
+                    )
+                    }
                 </div>
+
+
+
             </div>
         </div>
     );

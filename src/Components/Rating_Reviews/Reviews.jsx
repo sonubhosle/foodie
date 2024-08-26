@@ -51,7 +51,9 @@ const Reviews = ({ productId }) => {
           </div>
         ))
       ) : (
-        <p>No reviews available.</p>
+        <div className='no-review'>
+          <p>No reviews available.</p>
+        </div>
       )}
     </div>
   );

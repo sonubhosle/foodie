@@ -44,17 +44,6 @@ const Product_Details = () => {
         dispatch(findProductsById(data));
     }, [params.productId, dispatch]);
 
-
-
-
-
-
-
-
-
-
-
-
     useEffect(() => {
         const fetchRelated = async () => {
             try {
@@ -71,7 +60,6 @@ const Product_Details = () => {
 
     return (
         <>
-            <Heading heading={'Product Details'} />
             <div className='producd-details'>
                 <div className="product">
                     {products.product ? (
@@ -83,9 +71,7 @@ const Product_Details = () => {
 
                                 {/* Related Images */}
                                 <div className='gallary' >
-                                    {
-                                        images.map((item, index) => (<img key={index} src={item.image} className='related-images' />))
-                                    }
+                                    <img src='https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/RX_THUMBNAIL/IMAGES/VENDOR/2024/7/16/a5e2b6e1-abbd-492f-9472-44af9dda6103_9864.jpg' alt="" />
                                 </div>
                             </div>
                             <div className="details">
@@ -109,11 +95,10 @@ const Product_Details = () => {
                                     </div>
                                     <div className="heading-2">Rating & Reviews</div>
                                     <div className="rating-reviews">
-
-                                        <div className="reviews">Reviews : {products?.product.numReviews}  </div>
                                         <div className="rating">
                                             {products?.product.numRatings} <FaStar size={14} />
                                         </div>
+                                        <div className="reviews">Reviews : {products?.product.numReviews || 0}   </div>
                                     </div>
                                     <div className="heading-2">Available</div>
                                     <div className='stock'>{products?.product.quantity > 0 ? <div className="in-stock">In Stock</div> : <div className='out-of-stock'>Comming Soon</div>}</div>
@@ -136,7 +121,7 @@ const Product_Details = () => {
 
             {/* Reviews */}
             <Heading heading={'Reviews'} />
-            <Reviews  productId={params.productId} />
+            <Reviews productId={params.productId} />
             {/* Related Products */}
             <Heading heading={'Related Products'} />
             <div className="product-grid">

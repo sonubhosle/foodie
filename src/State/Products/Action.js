@@ -43,16 +43,16 @@ export const findProductsById = (reqData) => async (dispatch) => {
     }
 };
 
-// export const createProduct = (product) => async (dispatch) => {
-//     dispatch({ type: CREATE_PRODUCTS_REQUEST });
+export const createProduct = (product) => async (dispatch) => {
+    dispatch({ type: CREATE_PRODUCTS_REQUEST });
 
-//     try {
-//         const { data } = await api.post('/api/admin/products/', product);
-//         dispatch({ type: CREATE_PRODUCTS_SUCCESS, payload: data });
-//     } catch (error) {
-//         dispatch({ type: CREATE_PRODUCTS_FAILURE, payload: error.response ? error.response.data : error.message });
-//     }
-// };
+    try {
+        const { data } = await api.post('/api/admin/products/', product);
+        dispatch({ type: CREATE_PRODUCTS_SUCCESS, payload: data });
+    } catch (error) {
+        dispatch({ type: CREATE_PRODUCTS_FAILURE, payload: error.response ? error.response.data : error.message });
+    }
+};
 
 
 export const deleteProduct = (productId) => async (dispatch) => {

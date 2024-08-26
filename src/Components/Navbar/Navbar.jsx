@@ -89,10 +89,10 @@ const Navbar = () => {
                                 <div>
                                     <div className='open-btn' onClick={handleUserClick} aria-controls={openUserMenu ? 'basic-menu' : undefined} aria-haspopup='true' aria-expanded={openUserMenu ? 'true' : undefined}>
                                         <img src={auth.user?.photo} alt={auth.user?.name} />
-                                       <div>
-                                       <p>Welcome</p>
-                                        <div className="name">{auth.user?.name}</div>
-                                       </div>
+                                        <div>
+                                            <p>Welcome</p>
+                                            <div className="name">{auth.user?.name}</div>
+                                        </div>
                                     </div>
 
                                     <Menu id="basic-menu"
@@ -112,7 +112,6 @@ const Navbar = () => {
                                             },
                                         }}
                                     >
-                                        {/* onClick={handleCloseUserMenu} */}
                                         <Link to='/profile' className="menu-link" onClick={() => handleLinkClick('/profile')}>
                                             <p className="menu-item"><FaRegUser className="menu-icon" /> Profile</p>
                                         </Link>
@@ -125,6 +124,11 @@ const Navbar = () => {
                                         <Link to='/' className="menu-link" onClick={() => handleLinkClick('/')}>
                                             <p className="menu-item"><MdCardGiftcard className="menu-icon" /> Gift Cards</p>
                                         </Link>
+                                        {auth.user?.role === 'ADMIN' && (
+                                            <Link className="menu-link" onClick={() => window.location.href = 'http://localhost:5174/'}>
+                                                <p className="menu-item"><FaUser className="menu-icon" /> Admin Dashboard</p>
+                                            </Link>
+                                        )}
                                         <div className="hr-line"></div>
                                         <Link className="menu-link" onClick={handleLogout}>
                                             <p className="menu-item"><RiLogoutBoxRLine className="menu-icon" /> Logout</p>
