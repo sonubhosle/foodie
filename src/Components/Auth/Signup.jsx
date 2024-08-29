@@ -5,7 +5,7 @@ import { register } from '../../State/Authentication/Action';
 import { useDispatch, useSelector } from 'react-redux'
 import { toast } from 'react-toastify';
 
-const Signup = () => {
+const Admin_Signup = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const auth = useSelector(state => state.auth);
@@ -63,4 +63,4 @@ const Signup = () => {
   );
 };
 
-export default Signup;
+export default Admin_Signup;

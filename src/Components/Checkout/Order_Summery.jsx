@@ -6,6 +6,7 @@ import '../../Pages/Cart/Cart.css'
 import { useSelector, useDispatch } from 'react-redux'
 import { useLocation } from 'react-router-dom'
 import { getOrderById } from '../../State/Orders/Action'
+import { createPayment } from '../../State/Payments/Action'
 
 const Order_Summery = () => {
 
@@ -22,6 +23,11 @@ const Order_Summery = () => {
   useEffect(() => {
     dispatch(getOrderById(orderId))
   }, [orderId])
+
+  const handleCheckout = () => {
+    dispatch(createPayment(orderId))
+  }
+
 
   return (
     <div className='order-summery'>
@@ -57,8 +63,7 @@ const Order_Summery = () => {
             </div>
             <div className="line"></div>
             <p className='green bold-xl'>You will save ₹{order.order?.discount} on this order</p>
-
-            <div className="checkout-btn" >Checkout</div>
+            <div className="checkout-btn" onClick={handleCheckout} >Checkout</div>
           </div>
         </div>
       </div>

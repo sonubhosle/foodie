@@ -56,7 +56,6 @@ const Order_Card = ({ order }) => {
                 <div className="order-brand">{orderItem.product.brand}</div>
                 <div className="order-title" onClick={() => handleOrderClick(order._id)}>{orderItem.product.title}</div>
                 <button className='red' onClick={() => handleDeleteClick(order._id)}>Cancel</button>
-
               </div>
             </div>
             <div className="order-price">₹{orderItem?.discountedPrice}</div>
