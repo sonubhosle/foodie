@@ -78,35 +78,35 @@ const Profile = () => {
           <div className="item">
             <div className="name"> Mobile: </div><p>8080987767</p>
           </div>
-          <button className='logout_btn'>
+          <button className='logout_btn' onClick={handleLogout}>
             Logout
           </button>
         </div>
         <div className="user_address">
-  {addresses.length > 0 ? (
-    <div className="address_grid">
-      {addresses.map((item, index) => (
-        <div className="address_card" key={index}>
-          <div className="user_name">Name: {item.name} {item.surname}</div>
-          <div className="email">Email: {item.email}</div>
-          <div className="name">Mobile: {item.mobile}</div>
-          <div className="name">Pincode: {item.pincode}</div>
-          <div className="name">Street: {item.landmark}</div>
-          <div className="state_city">
-            <div className="city">City: {item.city}</div>
-            <div className="city">State: {item.state}</div>
-            <div className="city">State: {item.country}</div>
-          </div>
-          <button onClick={() => deleteAddress(item._id)}>Delete</button>
+          {addresses.length > 0 ? (
+            <div className="address_grid">
+              {addresses.map((item, index) => (
+                <div className="address_card" key={index}>
+                  <div className="user_name">Name: {item.name} {item.surname}</div>
+                  <div className="email">Email: {item.email}</div>
+                  <div className="name">Mobile: {item.mobile}</div>
+                  <div className="name">Pincode: {item.pincode}</div>
+                  <div className="name">Street: {item.landmark}</div>
+                  <div className="state_city">
+                    <div className="city">City: {item.city}</div>
+                    <div className="city">State: {item.state}</div>
+                    <div className="city">State: {item.country}</div>
+                  </div>
+                  <button onClick={() => deleteAddress(item._id)}>Delete</button>
+                </div>
+              ))}
+            </div>
+          ) : (
+            <div className="no-address">
+              <p>Address not found</p>
+            </div>
+          )}
         </div>
-      ))}
-    </div>
-  ) : (
-    <div className="no-address">
-      <p>Address not found</p>
-    </div>
-  )}
-</div>
 
       </div>
 

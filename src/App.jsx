@@ -13,7 +13,7 @@ const Home = lazy(() => import('./Pages/Home/Home'));
 const Cart = lazy(() => import('./Pages/Cart/Cart'));
 const Orders = lazy(() => import('./Pages/Orders/Orders'));
 const Profile = lazy(() => import('./Pages/Profile/Profile'));
-const Payments = lazy(() => import('./Components/Payment/Payments'));
+import Payments  from  './Components/Payment/Payments';
 
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -33,7 +33,7 @@ const App = () => {
         <Route path='/product/:productId/reviews-ratings' element={<Rating_Reviews />} />
         <Route path='/checkout/' element={<Checkout />} />
         <Route path='/account/order/:orderId' element={<Order_Details />} />
-        <Route path='/payment/:orderId' element={<Payments />} />
+        <Route path='/:orderId' element={<Payments />} />
       </Routes>
       <Footer />
       < ToastContainer />

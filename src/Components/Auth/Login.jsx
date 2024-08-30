@@ -20,8 +20,8 @@ const Login = () => {
 
       if (auth.user.role === 'ADMIN') {
         setTimeout(() => {
-          window.location.href = 'http://localhost:5174/';
-        }, 500); 
+          window.location.href = 'https://admin-31370.web.app/';
+        }, 500);
       } else {
         navigate('/');
       }

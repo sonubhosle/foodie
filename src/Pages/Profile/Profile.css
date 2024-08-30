@@ -27,7 +27,7 @@
     width: 97%;
     margin: 10px auto 0px auto;
     position: relative;
-    height: 180px;
+    height: auto;
 }
 
 
@@ -101,9 +101,7 @@
     font-weight: 500;
     color: #fff;
     box-shadow: rgb(40, 116, 240) 0px 0px 4px 0px;
-    position: absolute;
-    right: 10px;
-    bottom: 10px;
+    margin-top: 15px;
 }
 
 .address_card .user_name {
